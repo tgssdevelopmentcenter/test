@@ -1,0 +1,5 @@
+<h2>Custom Mat Table</h2>
+<!--  -->
+<mat-table-custom [response]="data" [columns]="columns" (onPaginating)="paginate($event)" (onSorting)="sort($event)"
+    [pageSize]="pageSize" [pageOptions]="[5,10,15,20,25,]" [needPagination]="true" [status]="status"
+    [buttonList]="buttonList"></mat-table-custom>

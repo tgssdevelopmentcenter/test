@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.no_data .mat-pseudo-checkbox {
+  display: none !important;
+}
+
+.sun-editor .se-wrapper .se-wrapper-code {
+  height: 100% !important;
+}
+
+.sun-editor {
+  [data-command="showBlocks"],
+  [data-command="codeView"],
+  [data-command="print"],
+  [data-command="video"],
+  [data-command="paragraphStyle"],
+  [data-command="formatBlock"] {
+    display: none !important;
+  }
+}

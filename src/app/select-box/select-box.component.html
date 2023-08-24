@@ -1,0 +1,37 @@
+<mat-card>
+
+
+    <mat-card-content>
+        <form [formGroup]="createForm">
+
+
+            <h3>Single & Static Options</h3>
+            <single-static [form_control]="createForm?.get('singleStatic')" [error_message]="'Please select the colors'"
+                [options]="data" [options_display]="'color'" [options_value]="'value'" [required]="true"
+                [placeholder]="'Colors'" [searchPlaceHolder]="'Search Color'"></single-static>
+
+
+            <h3>Single & API Options</h3>
+            <single-api [form_control]="createForm?.get('singleApi')" [error_message]="'Please select the User'"
+                [options_display]="'name'" [options_value]="'id'" [required]="true" [placeholder]="'User'"
+                [searchPlaceHolder]="'Search User'" [api_endpoint]="'https://jsonplaceholder.typicode.com/users'"
+                [api_queryparams]="{_limit:200}" [api_params]="''" [response_key]="''"></single-api>
+
+            <h3>Multiple & Static Options</h3>
+            <multiple-static [form_control]="createForm?.get('multipleStatic')" [need_all_options]="true"
+                [error_message]="'Please select the colors'" [options]="data" [options_display]="'color'"
+                [options_value]="'value'" [required]="true" [placeholder]="'Colors'"
+                [searchPlaceHolder]="'Search Color'"></multiple-static>
+
+
+            <h3>Multiple & API Options</h3>
+            <multiple-api  [form_control]="createForm?.get('multipleApi')" [error_message]="'Please select the User'"
+                [options_display]="'name'" [options_value]="'id'" [required]="true" [placeholder]="'User'"
+                [searchPlaceHolder]="'Search User'" [need_all_options]="true" [api_endpoint]="'https://jsonplaceholder.typicode.com/users'"
+                [api_queryparams]="{_limit:200}" [api_params]="''" [response_key]="''"></multiple-api>
+        </form>
+
+        <button mat-button color="primary" (click)="submit()">Submit</button>
+    </mat-card-content>
+
+</mat-card>
