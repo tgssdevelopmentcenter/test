@@ -112,7 +112,7 @@
         <p class="text-center bg-white mb-0 pb-24"> <b>No Data Found...</b> </p>
     </ng-container>
     <div class="" *ngIf="(tableSource.filteredData.length != 0 || tableSource.data.length != 0 )&&needPagination">
-        <mat-paginator #paginator [pageSizeOptions]="pageOptions" [length]="tableSource?.data.length"
+        <mat-paginator #paginator [pageSizeOptions]="pageOptions" [length]="200"
             [pageSize]="pageSize" (page)="paginateData($event)"></mat-paginator>
     </div>
 </div>

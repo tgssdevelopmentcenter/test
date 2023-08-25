@@ -39,7 +39,8 @@ import { ToolTipTestComponent } from './tool-tip-test/tool-tip-test.component';
     SelectBoxModule,
     TextEditorModule,
     AllInOneTableModule,
-    CustomTooltipModule
+    CustomTooltipModule,
+    HttpClientModule
 
   ],
   exports: [SelectBoxModule, CustomTooltipModule],
