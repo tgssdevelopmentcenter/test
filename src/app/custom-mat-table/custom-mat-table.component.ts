@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PaginationDTO, TableService } from './service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-custom-mat-table',
@@ -9,37 +11,95 @@ export class CustomMatTableComponent implements OnInit {
   data: any
 
   columns: any[] = [
-    { key: 'name', label: 'Name', sortKey: 'name' },
+    { key: 'userId', label: 'User Id', sortKey: 'userId' },
     {
-      key: 'email', label: 'Email Address', isLink: true, routerLink: 'select-box',
-      query: [{ key: 'id', value: 'id' }, { key: 'nameURL', value: 'name' }]
+      key: 'id', label: 'Id', isLink: true, routerLink: 'select-box',
+      query: [{ key: 'id', value: 'id' }, { key: 'nameURL', value: 'title' }]
     },
-    { key: 'phone', label: 'Mobile Number' },
-    { key: 'website', label: 'website' },
-    { key: 'status', label: 'Status', isLabel: true },
-    { key: 'actions', label: 'Actions', isVert: true, conditionKey: 'status', idKey: 'id' }
+    { key: 'title', label: 'Title' },
+    { key: 'completed', label: 'Status', isLabel: true },
+    { key: 'actions', label: 'Actions', isVert: true, conditionKey: 'completed', idKey: 'id' }
   ]
 
   // 'View', 'Update', 'Delete', 'Active'
   buttonList = [
-    { name: 'View', condition: [0, 1, 2] },
-    { name: 'Update', condition: [2] },
-    { name: 'Delete', condition: [1, 2] },
-    { name: 'Active', condition: [1] },
+    { name: 'View', condition: [true, false] },
+    { name: 'Update', condition: [true, false] },
+    { name: 'Delete', condition: [true] },
   ]
 
   status = [
-    { status: '0', label: 'In-active', class: 'active' },
-    { status: '1', label: 'Active', class: 'inactive' },
-    { status: '2', label: 'Deleted', class: 'deleted' },
+    { status: false, label: 'In-active', class: 'inactive' },
+    { status: true, label: 'Active', class: 'active' },
   ]
   pageSize = 5
   pageNo = 1
-  constructor() { }
+
+  pagination: PaginationDTO
+  constructor(
+    private service: TableService
+  ) {
+    this.pagination = new PaginationDTO()
+  }
 
   ngOnInit(): void {
-    this.data = DATA
+    this.getAllTodos()
   }
+
+
+
+  getAllTodos() {
+    this.service.getAllTodos(this.pagination).subscribe({
+      next: (res) => {
+        this.data = res?.filter((ele: any, inx) => {
+          switch (true) {
+            case ((inx % 2) == 0): {
+              ele.status = 2
+              return ele
+            }
+              break
+            case ((inx % 3) == 0): {
+              ele.status = 1
+              return ele
+            }
+              break
+            default: {
+              ele.status = 0
+              return ele
+            }
+          }
+
+        })
+      },
+      error: (err) => {
+        this.data = []
+      },
+      complete: () => {
+
+      }
+    })
+  }
+  /**
+.filter((ele: any, inx) => {
+  switch (true) {
+    case ((inx % 2) == 0): {
+      ele.status = 2
+      return ele
+    }
+      break
+    case ((inx % 3) == 0): {
+      ele.status = 1
+      return ele
+    }
+      break
+    default: {
+      ele.status = 0
+      return ele
+    }
+  }
+
+})
+   */
 
 
   sort(event: any) {
@@ -47,8 +107,19 @@ export class CustomMatTableComponent implements OnInit {
   }
 
   paginate(event: any) {
-    this.pageSize = event?.size ?? 5;
-    this.pageNo = event?.index ?? 0;
+    this.pagination._limit = event?.size
+    this.pagination._page = event?.index + 1
+    this.getAllTodos()
+  }
+
+  action(event: any) {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: `${event?.id} was ${event?.action}ed successfully.`,
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }
 
@@ -286,22 +357,4 @@ const DATA = [
       "bs": "target end-to-end models"
     }
   }
-].filter((ele: any, inx) => {
-  switch (true) {
-    case ((inx % 2) == 0): {
-      ele.status = 2
-      return ele
-    }
-      break
-    case ((inx % 3) == 0): {
-      ele.status = 1
-      return ele
-    }
-      break
-    default: {
-      ele.status = 0
-      return ele
-    }
-  }
-
-})
+]
