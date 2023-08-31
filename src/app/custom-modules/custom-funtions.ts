@@ -3,7 +3,7 @@ export function checkNull(data: any) {
         && (data != undefined)
         && (data != '')
         && ((Array.isArray(data) ? data.length > 0 : true))
-        && (typeof data == 'object' ? (Object.keys(data).length > 0) : true)
+     
 }
 
 

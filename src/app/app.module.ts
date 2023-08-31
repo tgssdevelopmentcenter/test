@@ -18,6 +18,9 @@ import { CustomMatTableComponent } from './custom-mat-table/custom-mat-table.com
 import { AllInOneTableModule } from './custom-modules/all-in-one-table/all-in-one-table.module';
 import { CustomTooltipModule } from './custom-modules/cutom-tooltip/custom-tooltip.module';
 import { ToolTipTestComponent } from './tool-tip-test/tool-tip-test.component';
+import { TextTypeDateModule } from './custom-modules/text-type-date/text-type-date.module';
+import { TextDateInputComponent } from './text-date-input/text-date-input.component';
+import { DatePickerModule } from './custom-modules/date-picker/date-picker.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,7 @@ import { ToolTipTestComponent } from './tool-tip-test/tool-tip-test.component';
     TextEditorComponent,
     InputFieldsComponent,
     LightboxComponent,
-    CustomMatTableComponent, ToolTipTestComponent
+    CustomMatTableComponent, ToolTipTestComponent, TextDateInputComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +43,12 @@ import { ToolTipTestComponent } from './tool-tip-test/tool-tip-test.component';
     TextEditorModule,
     AllInOneTableModule,
     CustomTooltipModule,
-    HttpClientModule
+    HttpClientModule,
+    TextTypeDateModule,
+    DatePickerModule
 
   ],
-  exports: [SelectBoxModule, CustomTooltipModule],
+  exports: [SelectBoxModule, CustomTooltipModule, TextTypeDateModule],
   providers: [],
   bootstrap: [AppComponent]
 })
