@@ -532,7 +532,7 @@ function validFilterFromToDate(fromDate, toDate): boolean {
             }
 
         } else {
-            return false
+            return true
         }
 
     } else {

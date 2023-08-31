@@ -1,11 +1,10 @@
 {
   "name": "angular-material-custom-components",
   "version": "0.0.0",
-  "author": "Gowtham K TG0072",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build",
+    "build": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --base-href https://tgssdevelopmentcenter.github.io/test/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
