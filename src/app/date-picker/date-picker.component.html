@@ -1,19 +1,18 @@
 <div class="" style="margin-left: 50px;margin-top: 50px;">
     <date-picker-stable placeholder="DD-MM-YYYY" [typeable]="true" [form_control]="createForm?.get('simple')"
-        [required]="true"  label="From Date" labelPosition="float"></date-picker-stable>
+        [required]="true" label="From Date" labelPosition="float"></date-picker-stable>
 </div>
 
 <div class="" style="margin-left: 50px;margin-top: 50px;">
     <h2>From Date </h2>
-    <date-picker-stable [typeable]="true" [form_control]="createForm?.get('fromDate')" [first]="true" [required]="true" label="From Date"
-        label2="To date" labelPosition="float"></date-picker-stable>
+    <date-picker-stable [typeable]="false" [form_control]="createForm?.get('fromDate')" [first]="true" [required]="true"
+        label="From Date" label2="To date" labelPosition="float"></date-picker-stable>
 </div>
 
 
 <div class="" style="margin-left: 50px;margin-top: 50px;">
     <h2>To Date</h2>
-    <date-picker-stable [typeable]="true" [first]="false" [form_control]="createForm?.get('toDate')" [required]="true" label="To Date"
-        label2="From Date" labelPosition="float"></date-picker-stable>
+    <date-picker-stable [typeable]="false" [first]="false" [form_control]="createForm?.get('toDate')" [required]="true"
+        label="To Date" label2="From Date" labelPosition="float"></date-picker-stable>
 </div>
 
-<!--  maximum="2023-08-30" -->

@@ -21,6 +21,7 @@ import { ToolTipTestComponent } from './tool-tip-test/tool-tip-test.component';
 import { TextTypeDateModule } from './custom-modules/text-type-date/text-type-date.module';
 import { TextDateInputComponent } from './text-date-input/text-date-input.component';
 import { DatePickerModule } from './custom-modules/date-picker/date-picker.module';
+import { FancyBoxStableModule } from './custom-modules/fancy-box-stable/fancy-box-stable.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { DatePickerModule } from './custom-modules/date-picker/date-picker.modul
     CustomTooltipModule,
     HttpClientModule,
     TextTypeDateModule,
-    DatePickerModule
+    DatePickerModule,
+    FancyBoxStableModule
 
   ],
   exports: [SelectBoxModule, CustomTooltipModule, TextTypeDateModule],

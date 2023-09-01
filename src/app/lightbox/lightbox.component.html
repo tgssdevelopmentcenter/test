@@ -1,1 +1,9 @@
-<p>lightbox works!</p>
+<!-- <fancy-box-stable *ngIf="false" [images]="data"></fancy-box-stable> -->
+
+
+<div class="" style="display: flex;justify-content: space-around;align-self: center;">
+    <img [src]="data[0]" (click)="setData(data)" width="300" height="300" alt="">
+
+    <img [src]="data2[0]" (click)="setData(data2)" width="300" height="300" alt="">
+    <img [src]="data3[0]" (click)="setData(data3)" width="300" height="300" alt="">
+</div>
