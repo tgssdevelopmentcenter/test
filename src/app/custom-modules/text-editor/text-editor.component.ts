@@ -1,8 +1,9 @@
 import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { initEditor } from 'src/app/core/util/editor.helper';
-import { Transliterate } from 'src/app/core/util/transliterate';
+
 import SunEditor from 'suneditor/src/lib/core';
+import { initEditor } from './util/editor.helper';
+import { Transliterate } from './util/transliterate';
 declare var $: any;
 @Component({
   selector: 'text-editor',
