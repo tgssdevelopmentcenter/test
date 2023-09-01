@@ -7,7 +7,6 @@ import { LightboxComponent } from './lightbox/lightbox.component';
 import { TextEditorComponent } from './text-editor/text-editor.component';
 import { CustomMatTableComponent } from './custom-mat-table/custom-mat-table.component';
 import { ToolTipTestComponent } from './tool-tip-test/tool-tip-test.component';
-import { TextDateInputComponent } from './text-date-input/text-date-input.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/select-box', pathMatch: 'full' },
@@ -18,7 +17,6 @@ const routes: Routes = [
   { path: 'text-editor', component: TextEditorComponent },
   { path: 'all-in-one-table', component: CustomMatTableComponent },
   { path: 'tool-tip', component: ToolTipTestComponent },
-  { path: 'text-date', component: TextDateInputComponent }
 ];
 
 @NgModule({
