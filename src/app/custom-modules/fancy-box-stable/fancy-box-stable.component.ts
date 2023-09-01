@@ -11,10 +11,14 @@ export class FancyBoxStableComponent implements OnInit, OnChanges {
   constructor(private service: FancyBoxService) { }
   ngOnInit() {
     this.service.getImages().subscribe((res: any) => {
+      console.log(res, 'observable')
       this.images = res ?? []
       if (checkNull(this.images)) {
         $('#fancy123').href = this.images[0]
+        setTimeout(() => {
           $('#fancy123').click()
+        }, 500);
+
       }
 
     })
