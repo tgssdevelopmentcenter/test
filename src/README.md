@@ -1,5 +1,5 @@
 # Select Box
-
+**********************************************************************************************
 ## Single Select Box with static options
 
 <single-static [form_control]="createForm?.get('singleStatic')" [error_message]="'Please select the colors'"
@@ -26,7 +26,7 @@
                 [options_display]="'name'" [options_value]="'id'" [required]="true" [placeholder]="'User'"
                 [searchPlaceHolder]="'Search User'" [need_all_options]="true" [api_endpoint]="'https://jsonplaceholder.typicode.com/users'"
                 [api_queryparams]="{_limit:200}" [api_params]="''" [response_key]="''"></multiple-api>
-
+*****************************************************************************************************************************************
 # ALL in One Table
 
 ## Inputs from the Parent Component
@@ -86,7 +86,7 @@ buttonList = [
 { name: 'Delete', condition: [1, 2] },
 { name: 'Active', condition: [1] },
 ]
-
+***************************************************************************************************************************
 # Date Picker
 
 # Input Properties
@@ -131,3 +131,4 @@ buttonList = [
     <date-picker-stable [typeable]="true" [first]="false" [form_control]="createForm?.get('toDate')" [required]="true" label="To Date"
         label2="From Date" labelPosition="float"></date-picker-stable>
 </div>
+***********************************************************************************************************************************
