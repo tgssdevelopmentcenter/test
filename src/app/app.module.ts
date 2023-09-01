@@ -18,10 +18,9 @@ import { CustomMatTableComponent } from './custom-mat-table/custom-mat-table.com
 import { AllInOneTableModule } from './custom-modules/all-in-one-table/all-in-one-table.module';
 import { CustomTooltipModule } from './custom-modules/cutom-tooltip/custom-tooltip.module';
 import { ToolTipTestComponent } from './tool-tip-test/tool-tip-test.component';
-import { TextTypeDateModule } from './custom-modules/text-type-date/text-type-date.module';
-import { TextDateInputComponent } from './text-date-input/text-date-input.component';
 import { DatePickerModule } from './custom-modules/date-picker/date-picker.module';
 import { FancyBoxStableModule } from './custom-modules/fancy-box-stable/fancy-box-stable.module';
+import { InputFieldStableModule } from './custom-modules/input-field-stable/input-field-stable.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +29,7 @@ import { FancyBoxStableModule } from './custom-modules/fancy-box-stable/fancy-bo
     TextEditorComponent,
     InputFieldsComponent,
     LightboxComponent,
-    CustomMatTableComponent, ToolTipTestComponent, TextDateInputComponent
+    CustomMatTableComponent, ToolTipTestComponent
   ],
   imports: [
     BrowserModule,
@@ -45,12 +44,12 @@ import { FancyBoxStableModule } from './custom-modules/fancy-box-stable/fancy-bo
     AllInOneTableModule,
     CustomTooltipModule,
     HttpClientModule,
-    TextTypeDateModule,
     DatePickerModule,
-    FancyBoxStableModule
+    FancyBoxStableModule,
+    InputFieldStableModule
 
   ],
-  exports: [SelectBoxModule, CustomTooltipModule, TextTypeDateModule],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

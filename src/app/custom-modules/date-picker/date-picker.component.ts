@@ -1,4 +1,10 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { AbstractControl, FormControl, Validators } from '@angular/forms';
 function checkNull(data: any) {
   return (
@@ -14,13 +20,11 @@ function checkNull(data: any) {
   styleUrls: ['./date-picker.component.scss'],
 })
 export class DatePickerComponent implements OnInit, OnChanges {
-
   /**
-  * @param Appearance
-  * @Notes Appearance for the Datepicker
-  */
+   * @param Appearance
+   * @Notes Appearance for the Datepicker
+   */
   @Input('appearance') public appearance: any;
-
 
   /**
    * @param Placeholder
@@ -36,7 +40,7 @@ export class DatePickerComponent implements OnInit, OnChanges {
    */
   @Input('label') public label: any;
   @Input('label2') public label2: any;
-  @Input('first') public first: boolean = false
+  @Input('first') public first: boolean = false;
   @Input('labelPosition') public labelPosition: 'fixed' | 'float' = 'float';
 
   /**
@@ -67,44 +71,41 @@ export class DatePickerComponent implements OnInit, OnChanges {
   @Input(`disabled`) public disabled: boolean = false;
 
   /**
- * @param maximum
- * @Notes  set maximum date
- * @value  'yyyy-MM-dd' should be in date format
- */
-  @Input(`maximum`) public maximum: any
+   * @param maximum
+   * @Notes  set maximum date
+   * @value  'yyyy-MM-dd' should be in date format
+   */
+  @Input(`maximum`) public maximum: any;
 
   /**
-* @param minimum
-* @Notes  set minimum date
-* @value  'yyyy-MM-dd' should be in date format
-*/
-  @Input(`minimum`) public minimum: any
+   * @param minimum
+   * @Notes  set minimum date
+   * @value  'yyyy-MM-dd' should be in date format
+   */
+  @Input(`minimum`) public minimum: any;
 
   /**
-* @param Typeable
-* @Notes  set the dates typeable
-*/
-  @Input(`typeable`) public typeable: boolean = false
+   * @param Typeable
+   * @Notes  set the dates typeable
+   */
+  @Input(`typeable`) public typeable: boolean = false;
 
-  constructor() { }
-
+  constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.UIapperance()
+    this.UIapperance();
   }
 
   ngOnInit(): void {
-    this.UIapperance()
-
+    this.UIapperance();
   }
-
 
   UIapperance() {
     if (!checkNull(this.form_control)) {
       this.form_control = new FormControl();
     }
 
-    this.appearance = checkNull(this.appearance) ? this.appearance : 'outline'
+    this.appearance = checkNull(this.appearance) ? this.appearance : 'outline';
     this.placeholder = this.placeholder ? this.placeholder : 'DD-MM-YYYY';
     this.disabled ? this.form_control.disable() : '';
     // this.typeable ? this.form_control.setValidators([Validators.pattern('/(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)/')]) : ''
@@ -125,39 +126,36 @@ export class DatePickerComponent implements OnInit, OnChanges {
   }
 
   checkDate(date: any) {
-    return String(new Date(date)) != ('Invalid Date') ? new Date(date) : ''
+    return String(new Date(date)) != 'Invalid Date' ? new Date(date) : '';
   }
 
   checkNull(data: any) {
-    return checkNull(data)
+    return checkNull(data);
   }
 
   async onBlur(value) {
     /**
      * @step1 validate the date with regular expression
-     * @step2 validate the date whether its a valid date or not 
+     * @step2 validate the date whether its a valid date or not
      * @step3 set the value for the formcontrol
      */
-    const regExp = /(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)/
-    const regValid = RegExp(regExp).test(value)
-    console.log(value)
+    const regExp = /(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)/;
+    const regValid = RegExp(regExp).test(value);
+    console.log(value);
     let date = regValid ? checkAndFormat(value) : '';
     if (checkNull(date)) {
       this.form_control.setValue(date);
-      this.form_control.updateValueAndValidity()
-    } 
+      this.form_control.updateValueAndValidity();
+    }
   }
 
-  OnDateChange(event) {
-  }
-
+  OnDateChange(event) {}
 }
-
 
 function checkAndFormat(value: String) {
   const arr: any[] = value.split('-');
-  const date = `${arr[2]}-${arr[1]}-${arr[0]}`
-  return (String(new Date(date)) != ('Invalid Date') ? new Date(date) : '')
+  const date = `${arr[2]}-${arr[1]}-${arr[0]}`;
+  return String(new Date(date)) != 'Invalid Date' ? new Date(date) : '';
 }
 
 // /[^0-9\-]*/g

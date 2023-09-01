@@ -1,5 +1,7 @@
 # Select Box
-**********************************************************************************************
+
+---
+
 ## Single Select Box with static options
 
 <single-static [form_control]="createForm?.get('singleStatic')" [error_message]="'Please select the colors'"
@@ -26,7 +28,9 @@
                 [options_display]="'name'" [options_value]="'id'" [required]="true" [placeholder]="'User'"
                 [searchPlaceHolder]="'Search User'" [need_all_options]="true" [api_endpoint]="'https://jsonplaceholder.typicode.com/users'"
                 [api_queryparams]="{_limit:200}" [api_params]="''" [response_key]="''"></multiple-api>
-*****************************************************************************************************************************************
+
+---
+
 # ALL in One Table
 
 ## Inputs from the Parent Component
@@ -86,28 +90,48 @@ buttonList = [
 { name: 'Delete', condition: [1, 2] },
 { name: 'Active', condition: [1] },
 ]
-***************************************************************************************************************************
+
+---
+
 # Date Picker
 
 # Input Properties
 
-## 1. [placeholder] - `placeholder for the datepicker`
+## 1. [placeholder]
 
-## 2. [form_control] - `Formcontrol name from the parent compoenent for the datepicker as [createForm?.get('simple')]`
+- `placeholder for the datepicker`
 
-## 3. [label] - `Label for the date picker from the parent component`
+## 2. [form_control]
 
-## 4. [required] - `whether the formcontrol is required or not its a boolean`
+- `Formcontrol name from the parent compoenent for the datepicker as [createForm?.get('simple')]`
 
-## 5. [labelPosition] - `label position for whether floating or fixed`
+## 3. [label]
 
-## 6. [first] - `it's for the whether its first date picker  as from date picker`
+- `Label for the date picker from the parent component`
 
-## 7. [label2] - `it's for the todate picker for error message purpose`
+## 4. [required]
 
-## 8. [minimum] - `Its for the minimum date`
+- `whether the formcontrol is required or not its a boolean`
 
-## 9. [maximum] - `its for the maximum date`
+## 5. [labelPosition]
+
+- `label position for whether floating or fixed`
+
+## 6. [first]
+
+- `it's for the whether its first date picker  as from date picker`
+
+## 7. [label2]
+
+- `it's for the todate picker for error message purpose`
+
+## 8. [minimum]
+
+- `Its for the minimum date`
+
+## 9. [maximum]
+
+- `its for the maximum date`
 
 ## Date Picker Coding in the Parent Component
 
@@ -132,3 +156,35 @@ buttonList = [
         label2="From Date" labelPosition="float"></date-picker-stable>
 </div>
 ***********************************************************************************************************************************
+
+# Custom Input field
+
+<div class="" style="margin-left: 50px;margin-top: 100px;">
+
+    <!-- Text -->
+    <input-stable placeholder="Customer name" label="Customer Name" labelPosition="fixed" [required]="true"
+        minlength="5" maxlength="5" type="text"></input-stable>
+
+
+    <!-- OTP -->
+    <input-stable placeholder="XXXX" label="OTP" labelPosition="float" [required]="true" minlength="4" maxlength="4"
+        type="number"></input-stable>
+
+
+    <!-- Email -->
+    <input-stable placeholder="Email Address" labelPosition="fixed" label="Email" [required]="true"
+        type="email"></input-stable>
+
+    <!-- Mobile Number -->
+    <input-stable placeholder="Mobile Number" labelPosition="float" label="Mobile Number" [required]="true"
+        type="mobile"></input-stable>
+
+    <!--Textarea -->
+    <input-stable placeholder="Comments" labelPosition="float" label="Comments" [required]="false" type="textarea"
+        rows="10" cols="100"></input-stable>
+
+    <!--Password -->
+    <input-stable placeholder="Password" labelPosition="float" label="Password" [required]="true"
+        type="password" minlength="8" maxlength="25"></input-stable>
+
+</div>
