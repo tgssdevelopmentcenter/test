@@ -91,23 +91,32 @@ buttonList = [
 
 # Input Properties
 
-## 1. [placeholder] - `placeholder for the datepicker`
+## 1. [placeholder] - 
+`placeholder for the datepicker`
 
-## 2. [form_control] - `Formcontrol name from the parent compoenent for the datepicker as [createForm?.get('simple')]`
+## 2. [form_control] 
+- `Formcontrol name from the parent compoenent for the datepicker as [createForm?.get('simple')]`
 
-## 3. [label] - `Label for the date picker from the parent component`
+## 3. [label] 
+- `Label for the date picker from the parent component`
 
-## 4. [required] - `whether the formcontrol is required or not its a boolean`
+## 4. [required] 
+- `whether the formcontrol is required or not its a boolean`
 
-## 5. [labelPosition] - `label position for whether floating or fixed`
+## 5. [labelPosition] 
+- `label position for whether floating or fixed`
 
-## 6. [first] - `it's for the whether its first date picker  as from date picker`
+## 6. [first] 
+- `it's for the whether its first date picker  as from date picker`
 
-## 7. [label2] - `it's for the todate picker for error message purpose`
+## 7. [label2] 
+- `it's for the todate picker for error message purpose`
 
-## 8. [minimum] - `Its for the minimum date`
+## 8. [minimum] 
+- `Its for the minimum date`
 
-## 9. [maximum] - `its for the maximum date`
+## 9. [maximum] 
+- `its for the maximum date`
 
 ## Date Picker Coding in the Parent Component
 
