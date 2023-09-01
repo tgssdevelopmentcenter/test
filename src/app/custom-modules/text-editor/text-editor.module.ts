@@ -5,7 +5,7 @@ import { TextEditorComponent } from './text-editor.component';
 
 @NgModule({
   declarations: [
-    TextEditorComponent 
+    TextEditorComponent  
   ],
   imports: [
     CommonModule
