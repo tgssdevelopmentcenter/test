@@ -70,7 +70,8 @@
 <ng-container *ngIf="type=='mobile'">
     <mat-form-field [appearance]="appearance">
         <mat-label *ngIf="labelPosition=='float'">{{checkNull(label) ? label :'Mobile Number'}}</mat-label>
-        <input matInput numbersonly [formControl]="form_control" [placeholder]="placeholder">
+        <input matInput numbersonly [minlength]="minlength" [maxlength]="maxlength" [formControl]="form_control"
+            [placeholder]="placeholder">
 
         <div matSuffix *ngIf="form_control?.invalid&&form_control?.touched" style="display: flex;">
             <!-- required -->

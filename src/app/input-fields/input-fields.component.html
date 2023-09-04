@@ -11,19 +11,19 @@
 
 
     <!-- Email -->
-    <input-stable placeholder="Email Address" labelPosition="fixed" label="Email" [required]="true"
-        type="email"></input-stable>
+    <input-stable placeholder="Email Address" labelPosition="fixed" label="Email" [required]="true" type="email"
+        [pattern]="emailRef"></input-stable>
 
     <!-- Mobile Number -->
     <input-stable placeholder="Mobile Number" labelPosition="float" label="Mobile Number" [required]="true"
-        type="mobile"></input-stable>
+        type="mobile" minlength="10" maxlength="10"></input-stable>
 
     <!--Textarea -->
     <input-stable placeholder="Comments" labelPosition="float" label="Comments" [required]="false" type="textarea"
         rows="10" cols="100"></input-stable>
 
     <!--Password -->
-    <input-stable placeholder="Password" labelPosition="float" label="Password" [required]="true"
-        type="password" minlength="8" maxlength="25"></input-stable>
+    <input-stable placeholder="Password" labelPosition="float" label="Password" [required]="true" type="password"
+        minlength="8" maxlength="25"></input-stable>
 
 </div>

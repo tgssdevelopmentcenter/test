@@ -228,7 +228,7 @@ export class InputFieldStableComponent implements OnInit, OnChanges {
 
       res(true);
     }).then(() => {
-      console.log(this.form_control);
+      // console.log(this.form_control);
     });
   }
 

@@ -7,6 +7,7 @@ import { LightboxComponent } from './lightbox/lightbox.component';
 import { TextEditorComponent } from './text-editor/text-editor.component';
 import { CustomMatTableComponent } from './custom-mat-table/custom-mat-table.component';
 import { ToolTipTestComponent } from './tool-tip-test/tool-tip-test.component';
+import { TimePickerComponent } from './time-picker/time-picker.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/select-box', pathMatch: 'full' },
@@ -17,10 +18,11 @@ const routes: Routes = [
   { path: 'text-editor', component: TextEditorComponent },
   { path: 'all-in-one-table', component: CustomMatTableComponent },
   { path: 'tool-tip', component: ToolTipTestComponent },
+  { path: 'time-picker', component: TimePickerComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

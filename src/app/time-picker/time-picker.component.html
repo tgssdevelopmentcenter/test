@@ -1,0 +1,28 @@
+<div class="" style="margin-left: 50px">
+
+    <h2>Normal Timepicker Without formcontrol</h2>
+    <time-picker-stable></time-picker-stable>
+
+    <h2>Normal Timepicker with formcontrol with disabled Input</h2>
+    <time-picker-stable [disableInput]="true" [form_control]="createForm?.get('test1')" label="Time Picker"
+        placeholder="HH:MM a"></time-picker-stable>
+
+
+    <h2>Normal Timepicker with formcontrol with disabled Icon </h2>
+    <time-picker-stable [disableIcon]="true" label="Time Picker" placeholder="HH:MM a"
+        [required]="false"></time-picker-stable>
+
+
+    <h2>Normal Timepicker with dark theme</h2>
+    <time-picker-stable  label="Time Picker" placeholder="HH:MM a" theme="dark"
+        [required]="false"></time-picker-stable>
+
+    <h2>Normal Timepicker with minutes gap</h2>
+    <time-picker-stable  label="Time Picker" placeholder="HH:MM a" [gap]="10"
+        [required]="false"></time-picker-stable>
+
+    <h2>Normal Timepicker with 24 hours format</h2>
+    <time-picker-stable  label="Time Picker" [format]="24" placeholder="HH:MM a" [gap]="10"
+        [required]="false"></time-picker-stable>
+
+</div>

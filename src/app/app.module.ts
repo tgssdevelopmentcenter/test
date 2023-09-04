@@ -21,6 +21,8 @@ import { ToolTipTestComponent } from './tool-tip-test/tool-tip-test.component';
 import { DatePickerModule } from './custom-modules/date-picker/date-picker.module';
 import { FancyBoxStableModule } from './custom-modules/fancy-box-stable/fancy-box-stable.module';
 import { InputFieldStableModule } from './custom-modules/input-field-stable/input-field-stable.module';
+import { TimePickerComponent } from './time-picker/time-picker.component';
+import { TimePickerStableModule } from './custom-modules/time-picker-stable/time-picker-stable.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { InputFieldStableModule } from './custom-modules/input-field-stable/inpu
     TextEditorComponent,
     InputFieldsComponent,
     LightboxComponent,
-    CustomMatTableComponent, ToolTipTestComponent
+    CustomMatTableComponent,
+    ToolTipTestComponent,
+    TimePickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,11 +50,11 @@ import { InputFieldStableModule } from './custom-modules/input-field-stable/inpu
     HttpClientModule,
     DatePickerModule,
     FancyBoxStableModule,
-    InputFieldStableModule
-
+    InputFieldStableModule,
+    TimePickerStableModule,
   ],
   exports: [],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
