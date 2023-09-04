@@ -5,7 +5,7 @@
     </div>
     <mat-form-field [appearance]="appearance">
         <mat-label *ngIf="labelPosition=='float'">{{checkNull(label) ? label :'Date Picker'}}</mat-label>
-        <input (blur)="onBlur(inputValue?.value)" #inputValue datesymbols maxlength="10"
+        <input  (blur)="onBlur(inputValue?.value)" #inputValue datesymbols maxlength="10"
             (dateChange)="OnDateChange($event)" [placeholder]="placeholder" [formControl]="form_control"
             [readonly]="!typeable" (click)="!typeable ? picker.open() :''" [min]="checkDate(minimum)"
             [max]="checkDate(maximum)" matInput [matDatepicker]="picker">
