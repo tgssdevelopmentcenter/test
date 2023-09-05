@@ -11,14 +11,14 @@ import { TimePickerComponent } from './time-picker/time-picker.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/select-box', pathMatch: 'full' },
-  { path: 'date-picker', component: DatePickerComponent },
-  { path: 'select-box', component: SelectBoxComponent },
-  { path: 'input-fields', component: InputFieldsComponent },
-  { path: 'light-box', component: LightboxComponent },
-  { path: 'text-editor', component: TextEditorComponent },
-  { path: 'all-in-one-table', component: CustomMatTableComponent },
-  { path: 'tool-tip', component: ToolTipTestComponent },
-  { path: 'time-picker', component: TimePickerComponent },
+  { path: 'date-picker',        component: DatePickerComponent },
+  { path: 'select-box',        component: SelectBoxComponent },
+  { path: 'input-fields',        component: InputFieldsComponent },
+  { path: 'light-box',          component: LightboxComponent },
+  { path: 'text-editor',        component: TextEditorComponent },
+  { path: 'all-in-one-table',   component: CustomMatTableComponent },
+  { path: 'tool-tip',           component: ToolTipTestComponent },
+  { path: 'time-picker',        component: TimePickerComponent },
 ];
 
 @NgModule({

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DatePickerComponent } from './date-picker.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -9,7 +8,15 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatDateFormats, MatNativeDateModule, MatRippleModule, NativeDateAdapter } from '@angular/material/core';
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
+  MatDateFormats,
+  MatNativeDateModule,
+  MatRippleModule,
+  NativeDateAdapter,
+} from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
@@ -37,10 +44,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DateSymboDirective } from './date-symbol.directive';
+import { DateSymboDirective, NumbersOnly } from './date-symbol.directive';
+import { DatepickerStableComponent } from './datepicker-stable/datepicker-stable.component';
 export class AppDateAdapter extends NativeDateAdapter {
   override format(date: Date, displayFormat: Object): string {
-    console.log(date, 'in the adapter')
     if (displayFormat === 'input') {
       let day: string = date.getDate().toString();
       day = +day < 10 ? '0' + day : day;
@@ -60,16 +67,19 @@ export const APP_DATE_FORMATS: MatDateFormats = {
     dateInput: 'input',
     monthYearLabel: { year: 'numeric', month: 'numeric' },
     dateA11yLabel: {
-      year: 'numeric', month: 'long', day: 'numeric'
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     },
     monthYearA11yLabel: { year: 'numeric', month: 'long' },
-  }
+  },
 };
-
 
 @NgModule({
   declarations: [
-    DatePickerComponent, DateSymboDirective
+    DateSymboDirective,
+    NumbersOnly,
+    DatepickerStableComponent
   ],
   imports: [
     CommonModule,
@@ -110,7 +120,8 @@ export const APP_DATE_FORMATS: MatDateFormats = {
     MatTableModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
   ],
   exports: [
     MatAutocompleteModule,
@@ -148,12 +159,12 @@ export const APP_DATE_FORMATS: MatDateFormats = {
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    DatePickerComponent
+    DatepickerStableComponent
   ],
   providers: [
     { provide: DateAdapter, useClass: AppDateAdapter },
-    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS }, DateSymboDirective
-
-  ]
+    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS },
+    DateSymboDirective,NumbersOnly
+  ],
 })
-export class DatePickerModule { }
+export class DatePickerModule {}

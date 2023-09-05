@@ -34,6 +34,7 @@ import { TimePickerStableModule } from './custom-modules/time-picker-stable/time
     CustomMatTableComponent,
     ToolTipTestComponent,
     TimePickerComponent,
+    
   ],
   imports: [
     BrowserModule,
