@@ -3,10 +3,12 @@
         <mat-label style="    font-size: 1rem;
         font-weight: 500;" *ngIf="labelPosition=='fixed'">{{checkNull(label) ? label :'Date Picker'}}</mat-label>
     </div>
-    <mat-form-field [appearance]="appearance">
-        <mat-label *ngIf="labelPosition=='float'">{{checkNull(label) ? label :'Date Picker'}}</mat-label>
-        <input  (blur)="onBlur(inputValue?.value)" #inputValue datesymbols maxlength="10"
-            (dateChange)="OnDateChange($event)" [placeholder]="placeholder" [formControl]="form_control"
+    <mat-form-field [appearance]="appearance" [floatLabel]=" 'always'">
+        <mat-label *ngIf="labelPosition=='float'">{{checkNull(label) ? label
+            :'Date Picker'}}</mat-label>
+
+
+        <input #myInput [placeholder]="placeholder" (blur)="onBlur(myInput?.value)" [formControl]="form_control"
             [readonly]="!typeable" (click)="!typeable ? picker.open() :''" [min]="checkDate(minimum)"
             [max]="checkDate(maximum)" matInput [matDatepicker]="picker">
         <div class="d-flex" matSuffix>

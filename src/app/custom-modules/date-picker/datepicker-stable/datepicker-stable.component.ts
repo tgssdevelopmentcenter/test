@@ -1,25 +1,24 @@
 import {
+  AfterViewInit,
   Component,
+  ElementRef,
   Input,
   OnChanges,
   OnInit,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import { AbstractControl, FormControl, Validators } from '@angular/forms';
-function checkNull(data: any) {
-  return (
-    data != null &&
-    data != undefined &&
-    data != '' &&
-    (Array.isArray(data) ? data.length > 0 : true)
-  );
-}
+import { checkNull } from '../../custom-funtions';
+import Inputmask from 'inputmask';
 @Component({
-  selector: 'date-picker-stable',
-  templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.scss'],
+  selector: 'datepicker-stable',
+  templateUrl: './datepicker-stable.component.html',
+  styleUrls: ['./datepicker-stable.component.scss'],
 })
-export class DatePickerComponent implements OnInit, OnChanges {
+export class DatepickerStableComponent
+  implements OnInit, OnChanges, AfterViewInit
+{
   /**
    * @param Appearance
    * @Notes Appearance for the Datepicker
@@ -89,7 +88,13 @@ export class DatePickerComponent implements OnInit, OnChanges {
    * @Notes  set the dates typeable
    */
   @Input(`typeable`) public typeable: boolean = false;
+  @ViewChild('myInput') myInputElementRef: ElementRef;
 
+  /**
+   * @param seperator
+   * @Notes  set the dates typeable
+   */
+  @Input(`seperator`) public seperator: '-' | '/' | '.' = '-';
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -99,6 +104,18 @@ export class DatePickerComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.UIapperance();
   }
+
+  ngAfterViewInit(): void {
+    Inputmask('datetime', {
+      inputFormat: `dd${this.seperator}mm${this.seperator}yyyy`,
+      placeholder: `DD${this.seperator}MM${this.seperator}YYYY`,
+      alias: 'datetime',
+      // min: '01/01/2010',
+      clearMaskOnLostFocus: false,
+      isComplete: function (buffer, opts) {},
+    }).mask(this.myInputElementRef.nativeElement);
+  }
+  Z;
 
   UIapperance() {
     if (!checkNull(this.form_control)) {
@@ -139,23 +156,33 @@ export class DatePickerComponent implements OnInit, OnChanges {
      * @step2 validate the date whether its a valid date or not
      * @step3 set the value for the formcontrol
      */
-    const regExp = /(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)/;
-    const regValid = RegExp(regExp).test(value);
-    console.log(value);
-    let date = regValid ? checkAndFormat(value) : '';
+
+    const regExp = this.seperatorCheck();
+    const regValid = await RegExp(regExp).test(value);
+    let date = regValid ? this.checkAndFormat(value) : '';
+    console.log(date, regValid, value);
     if (checkNull(date)) {
       this.form_control.setValue(date);
       this.form_control.updateValueAndValidity();
     }
   }
 
-  OnDateChange(event) {}
-}
+  seperatorCheck() {
+    switch (this.seperator) {
+      case '-':
+        return /(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)/;
+      case '.':
+        return /(^0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).(\d{4}$)/;
+      case '/':
+        return /(^0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(\d{4}$)/;
+      default:
+        return /(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)/;
+    }
+  }
 
-function checkAndFormat(value: String) {
-  const arr: any[] = value.split('-');
-  const date = `${arr[2]}-${arr[1]}-${arr[0]}`;
-  return String(new Date(date)) != 'Invalid Date' ? new Date(date) : '';
+  checkAndFormat(value: String) {
+    const arr: any[] = value.split(this.seperator);
+    const date = `${arr[2]}-${arr[1]}-${arr[0]}`;
+    return String(new Date(date)) != 'Invalid Date' ? new Date(date) : '';
+  }
 }
-
-// /[^0-9\-]*/g
